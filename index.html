@@ -1,14 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Калькулятор рекрутинга</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор рекрутинга</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Тест</h1>
+    <header class="header">
+        <div class="container">
+            <h1>Arknights Recruitment Calculator</h1>
+            <p class="subtitle">Выберите до 5 тегов, чтобы найти гарантированных оперативников</p>
+        </div>
+    </header>
 
-  <script src="index.js"></script>
+    <main class="container">
+        <!-- Блок выбора тегов -->
+        <section class="tags-section">
+            <div class="section-header">
+                <h2>Доступные теги <span id="selected-count">(0/5)</span></h2>
+                <button id="clear-btn" class="btn-clear">Сбросить всё</button>
+            </div>
+
+            <!-- Категория: Квалификация -->
+            <div class="tag-group">
+                <h3>Квалификация (Qualification)</h3>
+                <div class="tags-grid">
+                    <button class="tag-btn tag-rare" data-tag="Top Operator">Top Operator</button>
+                    <button class="tag-btn tag-rare" data-tag="Senior Operator">Senior Operator</button>
+                    <button class="tag-btn" data-tag="Starter">Starter</button>
+                    <button class="tag-btn" data-tag="Robot">Robot</button>
+                </div>
+            </div>
+
+            <!-- Категория: Позиция -->
+            <div class="tag-group">
+                <h3>Позиция (Position)</h3>
+                <div class="tags-grid">
+                    <button class="tag-btn" data-tag="Melee">Melee</button>
+                    <button class="tag-btn" data-tag="Ranged">Ranged</button>
+                </div>
+            </div>
+
+            <!-- Категория: Классы -->
+            <div class="tag-group">
+                <h3>Класс (Class)</h3>
+                <div class="tags-grid">
+                    <button class="tag-btn" data-tag="Guard">Guard</button>
+                    <button class="tag-btn" data-tag="Sniper">Sniper</button>
+                    <button class="tag-btn" data-tag="Defender">Defender</button>
+                    <button class="tag-btn" data-tag="Medic">Medic</button>
+                    <button class="tag-btn" data-tag="Supporter">Supporter</button>
+                    <button class="tag-btn" data-tag="Caster">Caster</button>
+                    <button class="tag-btn" data-tag="Specialist">Specialist</button>
+                    <button class="tag-btn" data-tag="Vanguard">Vanguard</button>
+                </div>
+            </div>
+
+            <!-- Категория: Аффиксы -->
+            <div class="tag-group">
+                <h3>Специализация (Affix)</h3>
+                <div class="tags-grid">
+                    <button class="tag-btn" data-tag="Healing">Healing</button>
+                    <button class="tag-btn" data-tag="Support">Support</button>
+                    <button class="tag-btn" data-tag="DPS">DPS</button>
+                    <button class="tag-btn" data-tag="AoE">AoE</button>
+                    <button class="tag-btn" data-tag="Slow">Slow</button>
+                    <button class="tag-btn" data-tag="Survival">Survival</button>
+                    <button class="tag-btn" data-tag="Defense">Defense</button>
+                    <button class="tag-btn" data-tag="Debuff">Debuff</button>
+                    <button class="tag-btn" data-tag="Shift">Shift</button>
+                    <button class="tag-btn" data-tag="Crowd-Control">Crowd-Control</button>
+                    <button class="tag-btn" data-tag="Nuker">Nuker</button>
+                    <button class="tag-btn" data-tag="Summon">Summon</button>
+                    <button class="tag-btn" data-tag="Fast-Redeploy">Fast-Redeploy</button>
+                    <button class="tag-btn" data-tag="DP-Recovery">DP-Recovery</button>
+                    <button class="tag-btn" data-tag="Elemental">Elemental</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок результатов -->
+        <section class="results-section">
+            <h2>Возможные комбинации</h2>
+            <div id="results-container" class="results-list">
+                <!-- Пример того, как будет выглядеть карточка результата -->
+                <div class="result-card">
+                    <div class="combo-tags">
+                        <span class="combo-tag">Top Operator</span>
+                        <span class="combo-tag">Guard</span>
+                    </div>
+                    <div class="operators-list">
+                        <span class="op-badge rarity-6">SilverAsh (6★)</span>
+                        <span class="op-badge rarity-6">Chen (6★)</span>
+                        <span class="op-badge rarity-6">Skadi (6★)</span>
+                    </div>
+                </div>
+                
+                <p class="placeholder-text">Выберите теги выше, чтобы увидеть подходящих оперативников...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
 </body>
 </html>
