@@ -1,1 +1,205 @@
-body { font-family: sans-serif; }
+/* Базовые настройки и переменные */
+:root {
+    --bg-main: #121417;
+    --bg-card: #1c2026;
+    --bg-tag: #2a2f38;
+    --bg-tag-hover: #363c47;
+    --accent-blue: #0098dc;
+    --text-main: #e6e8eb;
+    --text-muted: #8b949e;
+    --border-color: #30363d;
+
+    /* Цвета редкости из игры */
+    --rarity-6: #ff6600;
+    --rarity-5: #ffae00;
+    --rarity-4: #a366ff;
+    --rarity-3: #0098dc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding-bottom: 40px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 24px 0;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* Секции */
+.tags-section, .results-section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#selected-count {
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+/* Кнопка сброса */
+.btn-clear {
+    background-color: transparent;
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+/* Группы тегов */
+.tag-group {
+    margin-bottom: 18px;
+}
+
+.tag-group:last-child {
+    margin-bottom: 0;
+}
+
+.tag-group h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Кнопки тегов */
+.tag-btn {
+    background-color: var(--bg-tag);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.tag-btn:hover {
+    background-color: var(--bg-tag-hover);
+}
+
+/* Активное состояние тега (будет переключаться через JS) */
+.tag-btn.active {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Подсветка редких тегов */
+.tag-btn.tag-rare {
+    border-color: rgba(255, 174, 0, 0.4);
+}
+
+/* Блок результатов */
+.results-section h2 {
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+}
+
+.result-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.combo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.combo-tag {
+    background-color: var(--bg-tag);
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: var(--text-muted);
+}
+
+.operators-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Бейджи оперативников с цветами редкости */
+.op-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--rarity-3);
+}
+
+.op-badge.rarity-6 { border-left-color: var(--rarity-6); color: #ffb380; }
+.op-badge.rarity-5 { border-left-color: var(--rarity-5); color: #ffe099; }
+.op-badge.rarity-4 { border-left-color: var(--rarity-4); color: #d9bfff; }
+
+.placeholder-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px 0;
+}
